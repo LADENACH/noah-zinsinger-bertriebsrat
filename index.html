@@ -9,7 +9,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #ededed;
+  background: linear-gradient(135deg, #eeeeee 0%, #dcdcdc 100%);
   color: #222;
   display: flex;
 }
@@ -24,6 +24,7 @@ body {
   padding: 1.5rem;
 }
 
+/* Header */
 header {
   text-align: center;
   margin-bottom: 2rem;
@@ -31,8 +32,8 @@ header {
 
 header h1 {
   color: #c62828;
-  font-size: 2.5rem;
-  margin-bottom: 0.3rem;
+  font-size: 2.6rem;
+  margin-bottom: 0.2rem;
 }
 
 header h2 {
@@ -40,13 +41,29 @@ header h2 {
   color: #444;
 }
 
+/* Karten */
 .card {
   max-width: 900px;
-  margin: 0 auto 1.5rem auto;
+  margin: 0 auto 1.8rem auto;
   background: white;
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Blitz-Deko */
+.card::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #c62828, #9e1b1b);
+  transform: rotate(20deg);
+  opacity: 0.08;
 }
 
 .card h3 {
@@ -54,53 +71,87 @@ header h2 {
   margin-top: 0;
 }
 
-.plakat img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-ul {
-  padding-left: 1.2rem;
-}
-
 .divider {
   height: 4px;
-  width: 60px;
+  width: 70px;
   background: #c62828;
-  margin: 1rem 0;
+  margin: 0.8rem 0 1.2rem 0;
+}
+
+/* Plakat */
+.plakat img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* Timeline */
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.step {
+  flex: 1;
+  background: #f1f1f1;
+  border-left: 6px solid #c62828;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.step strong {
+  color: #c62828;
 }
 
 /* Wahlbox */
 .vote-box {
   max-width: 900px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #c62828;
+  margin: 2.5rem auto;
+  background: linear-gradient(135deg, #c62828, #9e1b1b);
   color: white;
+  border-radius: 16px;
+  padding: 2rem;
   text-align: center;
-  border-radius: 12px;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .vote-box:hover {
   transform: scale(1.03);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.3);
+}
+
+.vote-box img {
+  width: 80px;
+  margin-bottom: 1rem;
 }
 
 .vote-message {
-  margin-top: 1rem;
-  font-size: 1.2rem;
   display: none;
+  margin-top: 1rem;
+  font-size: 1.3rem;
 }
 
+/* QR */
+.qr {
+  text-align: center;
+}
+
+.qr canvas {
+  margin-top: 1rem;
+}
+
+/* Footer */
 footer {
   text-align: center;
-  color: #666;
-  font-size: 0.9rem;
+  color: #555;
   margin: 2rem 0;
+  font-size: 0.9rem;
 }
 </style>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 
 <script>
 function voteThanks() {
@@ -110,6 +161,10 @@ function voteThanks() {
     msg.style.display = "none";
   }, 3000);
 }
+
+window.onload = function() {
+  QRCode.toCanvas(document.getElementById('qrcode'), window.location.href);
+};
 </script>
 </head>
 
@@ -134,41 +189,35 @@ function voteThanks() {
   <p>
     Ich bin <strong>23 Jahre alt</strong> und seit <strong>2018 bei Baumit</strong>.
     Meine <strong>Ausbildung habe ich hier im Betrieb gemacht</strong> und arbeite
-    aktuell als <strong>Elektroniker für Betriebstechnik in der Instandhaltung</strong>.
+    heute als <strong>Elektroniker für Betriebstechnik in der Instandhaltung</strong>.
   </p>
   <p>
-    Zusätzlich habe ich die <strong>Ausbilder-Eignungsprüfung (AdA-Schein) bei der IHK</strong>
-    erfolgreich bestanden und plane den <strong>Industriemeister Elektrotechnik</strong>.
+    Zusätzlich habe ich die <strong>Ausbilder-Eignungsprüfung (AdA-Schein, IHK)</strong>
+    bestanden und plane den <strong>Industriemeister Elektrotechnik</strong>.
   </p>
 </div>
 
 <div class="card">
-  <h3>Warum Betriebsrat?</h3>
+  <h3>Mein Weg bei Baumit</h3>
   <div class="divider"></div>
-  <p>
-    Ich kenne den Betrieb von der Ausbildung bis zur Praxis.
-    Mir ist wichtig, dass Mitarbeiterinteressen ernst genommen werden
-    und Entscheidungen transparent und fair ablaufen.
-  </p>
-</div>
-
-<div class="card">
-  <h3>Wofür ich stehe</h3>
-  <div class="divider"></div>
-  <ul>
-    <li>Respekt & Zusammenarbeit auf Augenhöhe</li>
-    <li>Klare Kommunikation ohne Umwege</li>
-    <li>Praxisnahe Lösungen statt leere Worte</li>
-    <li>Mitbestimmung und Verlässlichkeit</li>
-  </ul>
+  <div class="timeline">
+    <div class="step"><strong>2018</strong><br>Ausbildungsbeginn bei Baumit</div>
+    <div class="step"><strong>Heute</strong><br>Instandhaltung & Elektroniker</div>
+    <div class="step"><strong>Zukunft</strong><br>Industriemeister Elektrotechnik</div>
+  </div>
 </div>
 
 <div class="vote-box" onclick="voteThanks()">
-  🗳️ <strong>Symbolisch wählen</strong><br>
-  (Antippen)
-  <div id="thanks" class="vote-message">
-    ✅ Danke für deine Stimme!
-  </div>
+  <img src="wahlbox.png" alt="Wahlbox">
+  <div><strong>Symbolisch wählen</strong></div>
+  <div id="thanks" class="vote-message">✅ Danke für deine Stimme!</div>
+</div>
+
+<div class="card qr">
+  <h3>Mehr Infos?</h3>
+  <div class="divider"></div>
+  <p>Einfach QR-Code scannen:</p>
+  <canvas id="qrcode"></canvas>
 </div>
 
 <footer>
