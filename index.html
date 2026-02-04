@@ -63,7 +63,7 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 20;
 }
 
 .qr-overlay img {
@@ -71,6 +71,42 @@ body {
   padding: 1rem;
   border-radius: 12px;
   width: 260px;
+}
+
+/* Start Popup */
+.start-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+}
+
+.start-box {
+  background: white;
+  max-width: 420px;
+  padding: 2rem;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.start-box h3 {
+  color: #c62828;
+  margin-top: 0;
+}
+
+.start-box button {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background: #c62828;
+  color: white;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 /* Seiteninhalt */
@@ -161,10 +197,30 @@ function voteThanks() {
     msg.style.display = "none";
   }, 3000);
 }
+
+function closeStartPopup() {
+  document.getElementById("startPopup").style.display = "none";
+}
 </script>
 </head>
 
 <body>
+
+<!-- Start Popup -->
+<div id="startPopup" class="start-popup">
+  <div class="start-box">
+    <h3>Betriebsratswahl 2026</h3>
+    <p>
+      Trage auch du dich für die Betriebsratswahl 2026
+      am Standort <strong>Landsberg</strong> ein.
+    </p>
+    <p>
+      Engagiere dich, bring dich ein und gestalte
+      die Zukunft unseres Standorts aktiv mit.
+    </p>
+    <button onclick="closeStartPopup()">Alles klar</button>
+  </div>
+</div>
 
 <div class="left-bar"></div>
 
@@ -203,12 +259,13 @@ function voteThanks() {
 </div>
 
 <div class="card">
-  <h3>Warum ich Kandidire?</h3>
+  <h3>Warum ich kandidiere</h3>
   <div class="divider"></div>
   <p>
-    Mir ist wichtig, dass Mitarbeiterinteressen gehört werden.
-    Ich möchte ansprechbar sein, Probleme ernst nehmen und gemeinsam
-    praktikable Lösungen finden – ohne leere Versprechen.
+    Ich kandidiere, weil ich den Betrieb aus verschiedenen Perspektiven kenne –
+    von der Ausbildung über den Arbeitsalltag bis hin zur Verantwortung.
+    Mir ist wichtig, dass Mitarbeiter gehört werden und Entscheidungen
+    transparent, fair und praxisnah getroffen werden.
   </p>
 </div>
 
@@ -231,7 +288,7 @@ function voteThanks() {
 </div>
 
 <footer>
-  <p>Gemeinsam für eine starke Mitarbeitervertretung.</p>
+  <p>Diese Seite dient ausschließlich der Information und stellt keine offizielle Stimmabgabe dar.</p>
 </footer>
 
 </div>
