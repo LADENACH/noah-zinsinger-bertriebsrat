@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Noah Zinsinger – Betriebsratskandidat</title>
+  <title>Noah Zinsinger – Betriebsratswahl</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -11,34 +11,47 @@
       font-family: Arial, sans-serif;
       background: #f4f4f4;
       color: #222;
-    }
-
-    .hero {
-      position: relative;
-      height: 70vh;
-      background: url("plakat.jpg") center/cover no-repeat;
       display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
+    /* roter Design-Streifen links */
+    .left-bar {
+      width: 8px;
+      background: #c62828;
+      min-height: 100vh;
     }
 
-    .hero-text {
-      position: relative;
-      color: white;
+    .content {
+      flex: 1;
+      padding: 1.5rem;
+    }
+
+    header {
       text-align: center;
-      padding: 1rem;
+      margin-bottom: 2rem;
     }
 
-    .hero-text h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+    header h1 {
+      color: #c62828;
+      font-size: 2.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    header h2 {
+      font-weight: normal;
+      font-size: 1.2rem;
+      color: #444;
+    }
+
+    .plakat {
+      max-width: 900px;
+      margin: 0 auto 2rem auto;
+    }
+
+    .plakat img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
     }
 
     section {
@@ -46,12 +59,13 @@
       margin: auto;
       background: white;
       padding: 2rem;
-      margin-top: 2rem;
+      margin-bottom: 1.5rem;
       border-radius: 8px;
     }
 
-    h2 {
+    h3 {
       color: #c62828;
+      margin-top: 0;
     }
 
     ul {
@@ -60,54 +74,70 @@
 
     footer {
       text-align: center;
-      padding: 2rem;
       color: #666;
       font-size: 0.9rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
 
 <body>
 
-<div class="hero">
-  <div class="hero-text">
-    <h1>Noah Zinsinger</h1>
-    <p>Kandidat für den Betriebsrat</p>
-  </div>
+<div class="left-bar"></div>
+
+<div class="content">
+
+<header>
+  <h1>Betriebsratswahl</h1>
+  <h2>Deine Stimme für Noah Zinsinger</h2>
+</header>
+
+<div class="plakat">
+  <img src="plakat.jpg" alt="Wahlplakat Noah Zinsinger">
 </div>
 
 <section>
-  <h2>Über mich</h2>
+  <h3>Kurz zu mir</h3>
   <p>
-    Ich arbeite als <strong>Elektroniker für Betriebstechnik</strong>
-    in der <strong>Instandhaltung</strong>.
+    Ich arbeite als <strong>Elektroniker für Betriebstechnik</strong> in der
+    <strong>Instandhaltung</strong>.  
     Zusätzlich plane ich den <strong>Industriemeister Elektrotechnik</strong>,
-    um mich fachlich und persönlich weiterzuentwickeln.
+    um mich fachlich weiterzuentwickeln und Verantwortung zu übernehmen.
   </p>
 </section>
 
 <section>
-  <h2>Warum ich kandidiere</h2>
+  <h3>Warum ich für den Betriebsrat kandidiere</h3>
   <p>
-    Mir ist wichtig, dass Mitarbeiterinteressen ernst genommen werden.
-    Ich möchte ansprechbar sein, Probleme nicht unter den Tisch kehren
-    und gemeinsam Lösungen finden – sachlich, fair und respektvoll.
+    Mir ist wichtig, dass Mitarbeiterinteressen gehört werden.
+    Ich möchte ansprechbar sein, Probleme ernst nehmen und gemeinsam
+    praktikable Lösungen finden – ohne leere Versprechen.
   </p>
 </section>
 
 <section>
-  <h2>Wofür ich stehe</h2>
+  <h3>Wofür ich stehe</h3>
   <ul>
-    <li>Klare Kommunikation auf Augenhöhe</li>
+    <li>Respektvoller Umgang auf Augenhöhe</li>
+    <li>Klare und ehrliche Kommunikation</li>
     <li>Sichere und faire Arbeitsbedingungen</li>
-    <li>Respekt und Zusammenhalt</li>
-    <li>Mitgestaltung statt Mitlaufen</li>
+    <li>Mitbestimmung und Transparenz</li>
   </ul>
 </section>
 
+<section>
+  <h3>Was mir wichtig ist</h3>
+  <p>
+    Ein guter Betriebsrat ist nah an den Mitarbeitern, hört zu
+    und bleibt sachlich. Genau das möchte ich einbringen.
+  </p>
+</section>
+
 <footer>
-  <p>Danke für dein Vertrauen – deine Stimme zählt.</p>
+  <p>Danke für dein Vertrauen.</p>
 </footer>
+
+</div>
 
 </body>
 </html>
