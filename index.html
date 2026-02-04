@@ -14,13 +14,67 @@ body {
   display: flex;
 }
 
+/* Seitenbalken */
 .left-bar {
-  width: 10px;
+  width: 16px;
   background: #c62828;
 }
 
+.right-bar {
+  width: 10px;
+  background: #111;
+}
+
+/* Inhalt */
 .content {
   flex: 1;
+  padding: 0;
+}
+
+/* Top-Leiste */
+.navbar {
+  background: #f0f0f0;
+  padding: 0.7rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar span {
+  font-weight: bold;
+  color: #444;
+}
+
+.qr-button {
+  cursor: pointer;
+}
+
+.qr-button img {
+  width: 32px;
+  height: 32px;
+}
+
+/* QR Overlay */
+.qr-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.qr-overlay img {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  width: 260px;
+}
+
+/* Seiteninhalt */
+.inner {
   padding: 1.5rem;
 }
 
@@ -54,13 +108,10 @@ header h2 {
   margin-top: 0;
 }
 
-.plakat img {
+.plakat img,
+.vote-box img {
   width: 100%;
   border-radius: 10px;
-}
-
-ul {
-  padding-left: 1.2rem;
 }
 
 .divider {
@@ -74,24 +125,16 @@ ul {
 .vote-box {
   max-width: 900px;
   margin: 2rem auto;
-  padding: 2rem;
-  background: #c62828;
-  color: white;
   text-align: center;
-  border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.vote-box:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .vote-message {
   margin-top: 1rem;
   font-size: 1.2rem;
+  color: #c62828;
   display: none;
+  font-weight: bold;
 }
 
 footer {
@@ -103,6 +146,14 @@ footer {
 </style>
 
 <script>
+function showQR() {
+  document.getElementById("qrOverlay").style.display = "flex";
+}
+
+function hideQR() {
+  document.getElementById("qrOverlay").style.display = "none";
+}
+
 function voteThanks() {
   const msg = document.getElementById("thanks");
   msg.style.display = "block";
@@ -118,6 +169,15 @@ function voteThanks() {
 <div class="left-bar"></div>
 
 <div class="content">
+
+<div class="navbar">
+  <span>Betriebsratswahl</span>
+  <div class="qr-button" onclick="showQR()">
+    <img src="qr-code.png" alt="QR-Code anzeigen">
+  </div>
+</div>
+
+<div class="inner">
 
 <header>
   <h1>Betriebsratswahl</h1>
@@ -143,12 +203,12 @@ function voteThanks() {
 </div>
 
 <div class="card">
-  <h3>Warum ich Kandidiere?</h3>
+  <h3>Warum ich Kandidire?</h3>
   <div class="divider"></div>
   <p>
-    Mir ist wichtig, dass Mitarbeiterinteressen ernst genommen werden.
-    Ich möchte ansprechbar sein, Probleme nicht unter den Tisch kehren
-    und gemeinsam Lösungen finden – sachlich, fair und respektvoll.
+    Mir ist wichtig, dass Mitarbeiterinteressen gehört werden.
+    Ich möchte ansprechbar sein, Probleme ernst nehmen und gemeinsam
+    praktikable Lösungen finden – ohne leere Versprechen.
   </p>
 </div>
 
@@ -164,17 +224,24 @@ function voteThanks() {
 </div>
 
 <div class="vote-box" onclick="voteThanks()">
-  🗳️ <strong>Symbolisch wählen</strong><br>
-  (Antippen)
+  <img src="wahlbox.png" alt="Symbolische Wahlbox">
   <div id="thanks" class="vote-message">
     ✅ Danke für deine Stimme!
   </div>
 </div>
 
 <footer>
-  <p>Gemeinsam für eine starke Mitarbeitervertretung.</p>
+  <p>Diese Seite dient ausschließlich der Information und stellt keine offizielle Stimmabgabe dar.</p>
 </footer>
 
+</div>
+</div>
+
+<div class="right-bar"></div>
+
+<!-- QR Overlay -->
+<div id="qrOverlay" class="qr-overlay" onclick="hideQR()">
+  <img src="qr-code.png" alt="QR-Code">
 </div>
 
 </body>
